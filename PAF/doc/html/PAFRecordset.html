@@ -1,0 +1,1237 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- Generated with PHPDoc, http://www.phpdoc.de -->
+<html>
+<head>
+	<title>PRISACOM APPLICATION FRAMEWORK - PAF - Class: PAFRecordset</title>
+	<link href="phpdoc.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<table width="100%" border="0">
+	<tr>
+		<td align="left" valign="top" bgcolor="#B0BAFF">			
+			<table width="100%">
+				<tr>
+					<td align="left" valign="top"><a href="phpdoc_packagelist.html">Packageindex</a></td>
+					<td align="left" valign="top"><a href="phpdoc_classtree.html">Classtrees</a></td>
+					<td align="left" valign="top"><a href="phpdoc_modulegroup.html">Modulegroups</a></td>
+					<td align="left" valign="top"><a href="phpdoc_elementlist.html">Elementlist</a></td>
+					<td align="left" valign="top"><a href="phpdoc_warnings.html">Report</a></td>
+					<td align="left" valign="top"><a href="phpdoc_xmlfiles.html">XML Files</a></td>
+				</tr>
+			</table>	
+		</td>
+	</tr>
+	<tr>	
+		<td height="20" align="left" valign="top"><hr></td>
+	</tr>
+	<tr>
+		<td align="left" valign="top">			
+			File: <a href="file://D:\wwwroot\web\private\class\php\PAF/PAFRecordSet.php" target="_new">D:\wwwroot\web\private\class\php\PAF/PAFRecordSet.php</a>
+			<h5>PRISACOM APPLICATION FRAMEWORK - PAF</h5>
+			<h1>PAFRecordset</h1>
+			<a href="PAFObject.html">PAFObject</a><br>&nbsp;&nbsp; |<br>&nbsp;&nbsp;+-- PAFRecordset<br>
+			<p>
+			Clase que proporciona el interface a implementar en todos los Recordset.
+			<p>
+			&nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td align="left" valign="top">
+			<h4>public abstract   class PAFRecordset extends <a href="PAFObject.html">PAFObject</a></h4>
+			Clase que proporciona el interface a implementar en todos los Recordset.
+			<br>
+			Un recordset es una abstracción de un filtro sobre una fuente de datos determinada.Esto es, representa el conjunto de registros que se recuperan tras una consultacon unas condiciones determinadas sobre una fuente de datos cualquiera.
+			<p>
+			<table>
+				
+				
+				<tr><td align="left" valign="top">Authors</td><td align="left" valign="top">Sergio Cruz &lt;<a href="mailto:scruz@prisacom.com">scruz@prisacom.com</a>&gt;</td></tr>
+				
+				<tr><td align="left" valign="top">Version</td><td align="left" valign="top">$Revision: 1.5 $</td></tr>
+				
+				
+				
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td height="10" align="left" valign="top">&nbsp;</td>
+	</tr>
+	
+	<tr>
+		<td align="left" valign="top">
+			<b>Direct known subclasses:</b> <a href="userRecordset.html">userRecordset</a>
+		</td>
+	</tr>
+	
+	<tr>
+		<td height="20" align="left" valign="top"><hr></td>
+	</tr>
+	
+	<tr>
+		<td align="left" valign="top">
+			<table width="100%" border="0">
+				<tr>
+					<td align="left" valign="top"><h3>Methods inherited from PAFObject</h3></td>
+				</tr>
+				<tr>
+					<td align="left" valign="top"><a href="PAFObject.html#function_pafobject">pafobject</a></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	
+	
+	<tr>
+		<td align="left" valign="top">		
+			<table width="100%" border="0">
+				<tr>
+					<td colspan="2" align="left" valign="top"><h2>Public Method Summary</h2></td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">void</td>
+					<td align="left" valign="top" width="100%"><a href="#function_PAFRecordset()"><h4>PAFRecordset(object PAFDataSource &$ds, [ string $errorClass ])</h4></a>Constructor.</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">int</td>
+					<td align="left" valign="top" width="100%"><a href="#function_getClassType()"><h4>getClassType()</h4></a>Método estático para recuperar el identificador de la clase.Warning: documentation is missing.</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">string</td>
+					<td align="left" valign="top" width="100%"><a href="#function_getClassName()"><h4>getClassName()</h4></a>Método estático que retorna el nombre de la clase.Warning: documentation is missing.</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">int</td>
+					<td align="left" valign="top" width="100%"><a href="#function_getCountLimit()"><h4>getCountLimit()</h4></a>Recupera el número de registros máximo que recuperará el recordsest</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">int</td>
+					<td align="left" valign="top" width="100%"><a href="#function_getFromLimit()"><h4>getFromLimit()</h4></a>Recupera el límite inferior desde el cual el recordset recuperará registros.</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">mixed</td>
+					<td align="left" valign="top" width="100%"><a href="#function_getResult()"><h4>getResult()</h4></a>Devuelve el objeto que contiene los resultados de la consulta.</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">object PAFDataSource</td>
+					<td align="left" valign="top" width="100%"><a href="#function_getDataSource()"><h4>getDataSource()</h4></a>Devuelve la fuente de datos a la que se conecta el Recordset.</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">boolean</td>
+					<td align="left" valign="top" width="100%"><a href="#function_isTypeOf()"><h4>isTypeOf(int $tipo)</h4></a>Método de consulta para determinar si una clase es de un tipo determinado.Warning: documentation is missing.</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">void</td>
+					<td align="left" valign="top" width="100%"><a href="#function_setDataSource()"><h4>setDataSource(object PAFDataSource $ds)</h4></a>Fija la fuente de datos a la que se conecta el Recordset.</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">void</td>
+					<td align="left" valign="top" width="100%"><a href="#function_setLimits()"><h4>setLimits(int $valueFrom, int $valueCount)</h4></a>Fija los límites entre los cuales recuperaremos registros dentro del Recordset.</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">mixed</td>
+					<td align="left" valign="top" width="100%"><a href="#function_next()"><h4>next()</h4></a>Proporciona el siguiente registro del Recordset.</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">mixed</td>
+					<td align="left" valign="top" width="100%"><a href="#function_count()"><h4>count()</h4></a>Proporciona el número de registros del Recordset.</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">mixed</td>
+					<td align="left" valign="top" width="100%"><a href="#function_countAll()"><h4>countAll()</h4></a>Proporciona el número de registros Total de la consulta sin aplicar</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">mixed</td>
+					<td align="left" valign="top" width="100%"><a href="#function_exec()"><h4>exec()</h4></a>Método de ejecución de la consulta sobre la fuente de datos.</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">boolean</td>
+					<td align="left" valign="top" width="100%"><a href="#function_checkLimits()"><h4>checkLimits()</h4></a>Método privado para la comprobación de los límites de recuperación de</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="left" valign="top">		
+			<table width="100%" border="0">
+				<tr>
+					<td colspan="2" align="left" valign="top"><h2>Private Method Summary</h2></td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">boolean</td>
+					<td align="left" valign="top" width="100%"><a href="#function_isSetFromLimit()"><h4>isSetFromLimit()</h4></a>Comprueba si el límite desde el cual queremos recuperar registros de un Recordset</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">boolean</td>
+					<td align="left" valign="top" width="100%"><a href="#function_isSetCount()"><h4>isSetCount()</h4></a>Comprueba si el límite hasta el cual queremos recuperar registros de un Recordset</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="left" valign="top">		
+			<table width="100%" border="0">
+				<tr>
+					<td colspan="2" align="left" valign="top"><h2>Private Field Summary</h2></td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">string</td>
+					<td align="left" valign="top" width="100%"><a href="#variable_$dataSource"><h4>$dataSource</h4></a>Atributo de tipo mixto que almacena la referencia a la fuente de datos actual del Recordset.</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">string</td>
+					<td align="left" valign="top" width="100%"><a href="#variable_$result"><h4>$result</h4></a>Atributo de tipo mixto para mantener los resultados de una consulta a una fuente de datos.</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">string</td>
+					<td align="left" valign="top" width="100%"><a href="#variable_$from"><h4>$from</h4></a>Almacena el valor origen para el caso de Recordsets limitados.</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">string</td>
+					<td align="left" valign="top" width="100%"><a href="#variable_$count"><h4>$count</h4></a>Almacena el número de registros a recuperar por el Recordset.</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">string</td>
+					<td align="left" valign="top" width="100%"><a href="#variable_$countAll"><h4>$countAll</h4></a>Contador total de registros del Recordset sin aplicar límites.</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="left" valign="top">
+			<table width="100%" border="0">
+				<tr>
+					<td align="left" valign="top" colspan=3><h3>Private Constant Summary</h3></td>
+				</tr>
+				
+				<tr>
+					<td align="left" valign="top"><a href="#constants_CLASS_PAFRECORDSET">CLASS_PAFRECORDSET</a></td>
+					<td align="left" valign="top">>><code>3</code><<</td>
+					<td align="left" valign="top" width="100%">Warning: documentation is missing.</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+	
+	
+	
+	
+	<tr>
+		<td align="left" valign="top">
+			<table width="100%" border="0">
+				<tr>
+					<td colspan="2" align="left" valign="top"><h2>Public Method Details</h2></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_PAFRecordset()"><h4>PAFRecordset</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>public    void PAFRecordset( object PAFDataSource &$ds, [ string $errorClass ] )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Constructor.
+						<br>
+						
+						<p>
+						
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="2" align="left" valign="top">Parameter</td>
+				</tr>
+				
+				<tr>
+					<td></td>
+					<td align="left" valign="top">						
+						<table>
+							<tr>
+								<td align="left" valign="top">object PAFDataSource</td>
+								<td align="left" valign="top">&$ds</td>
+								<td align="left" valign="top"><code></code></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td colspan="2" align="left" valign="top">Referencia a la fuente de datos (PAFDataSource) para el Recordset.</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				
+				<tr>
+					<td></td>
+					<td align="left" valign="top">						
+						<table>
+							<tr>
+								<td align="left" valign="top">string</td>
+								<td align="left" valign="top">$errorClass</td>
+								<td align="left" valign="top"><code>= >>null<<</code></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td colspan="2" align="left" valign="top">Nombre de la clase de error asociada a PAFRecordset.</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>void <p></td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_getClassType()"><h4>getClassType</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>public    int getClassType(  )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Método estático para recuperar el identificador de la clase.
+						<br>
+						
+						<p>
+						Warning: documentation is missing.
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>int <p>Identificador único de clase.</td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_getClassName()"><h4>getClassName</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>public    string getClassName(  )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Método estático que retorna el nombre de la clase.
+						<br>
+						
+						<p>
+						Warning: documentation is missing.
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>string <p>Nombre de la clase.</td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_getCountLimit()"><h4>getCountLimit</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>public    int getCountLimit(  )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Recupera el número de registros máximo que recuperará el recordsest
+						<br>
+						en su ejecución.
+						<p>
+						
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>int <p></td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_getFromLimit()"><h4>getFromLimit</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>public    int getFromLimit(  )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Recupera el límite inferior desde el cual el recordset recuperará registros.
+						<br>
+						
+						<p>
+						
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>int <p></td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_getResult()"><h4>getResult</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>public    mixed getResult(  )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Devuelve el objeto que contiene los resultados de la consulta.
+						<br>
+						
+						<p>
+						
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>mixed <p>Resultado del Resultset.</td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_getDataSource()"><h4>getDataSource</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>public    object PAFDataSource getDataSource(  )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Devuelve la fuente de datos a la que se conecta el Recordset.
+						<br>
+						
+						<p>
+						
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>object PAFDataSource <p></td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_isTypeOf()"><h4>isTypeOf</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>public    boolean isTypeOf( int $tipo )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Método de consulta para determinar si una clase es de un tipo determinado.
+						<br>
+						Reimplementado de PAFObject.
+						<p>
+						Warning: documentation is missing.
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="2" align="left" valign="top">Parameter</td>
+				</tr>
+				
+				<tr>
+					<td></td>
+					<td align="left" valign="top">						
+						<table>
+							<tr>
+								<td align="left" valign="top">int</td>
+								<td align="left" valign="top">$tipo</td>
+								<td align="left" valign="top"><code></code></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td colspan="2" align="left" valign="top">Número entero con el Código de clase por el que queremos preguntar .</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>boolean <p></td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_setDataSource()"><h4>setDataSource</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>public    void setDataSource( object PAFDataSource $ds )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Fija la fuente de datos a la que se conecta el Recordset.
+						<br>
+						
+						<p>
+						
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="2" align="left" valign="top">Parameter</td>
+				</tr>
+				
+				<tr>
+					<td></td>
+					<td align="left" valign="top">						
+						<table>
+							<tr>
+								<td align="left" valign="top">object PAFDataSource</td>
+								<td align="left" valign="top">$ds</td>
+								<td align="left" valign="top"><code></code></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td colspan="2" align="left" valign="top">Fuente de datos.</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>void <p></td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_setLimits()"><h4>setLimits</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>public    void setLimits( int $valueFrom, int $valueCount )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Fija los límites entre los cuales recuperaremos registros dentro del Recordset.
+						<br>
+						
+						<p>
+						
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="2" align="left" valign="top">Parameter</td>
+				</tr>
+				
+				<tr>
+					<td></td>
+					<td align="left" valign="top">						
+						<table>
+							<tr>
+								<td align="left" valign="top">int</td>
+								<td align="left" valign="top">$valueFrom</td>
+								<td align="left" valign="top"><code></code></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td colspan="2" align="left" valign="top">Límite desde el cual queremos recuperar registros del Recordset.</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				
+				<tr>
+					<td></td>
+					<td align="left" valign="top">						
+						<table>
+							<tr>
+								<td align="left" valign="top">int</td>
+								<td align="left" valign="top">$valueCount</td>
+								<td align="left" valign="top"><code></code></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td colspan="2" align="left" valign="top">Número máximo de registros a recuperar.</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>void <p></td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_next()"><h4>next</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>public    mixed next(  )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Proporciona el siguiente registro del Recordset.
+						<br>
+						Debe ser reescrita en las clases derivadas de ésta y devolver un objeto de tipo PAFRecordData
+						<p>
+						
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>mixed <p>Un error por ser clase virtual pura.</td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_count()"><h4>count</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>public    mixed count(  )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Proporciona el número de registros del Recordset.
+						<br>
+						Debe ser reescrita en las clases derivadas de ésta
+						<p>
+						
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>mixed <p>Un error por ser clase virtual pura.</td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_countAll()"><h4>countAll</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>public    mixed countAll(  )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Proporciona el número de registros Total de la consulta sin aplicar
+						<br>
+						límites.Debe ser reescrita en las clases derivadas de ésta si se desea saber cuál esnúmero total de resultados que proporciona un recordset cuando a este se lehan aplicado límites ($from, $count).
+						<p>
+						
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>mixed <p>Un error por ser clase virtual pura.</td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_exec()"><h4>exec</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>public    mixed exec(  )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Método de ejecución de la consulta sobre la fuente de datos.
+						<br>
+						Debe ser reescrita en las clases derivadas de ésta.
+						<p>
+						
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>mixed <p>Un error por ser clase virtual pura.</td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_checkLimits()"><h4>checkLimits</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>public    boolean checkLimits(  )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Método privado para la comprobación de los límites de recuperación de
+						<br>
+						registros dentro de un Recordset.
+						<p>
+						
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>boolean <p></td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+			</table>
+	</tr>
+	
+	<tr>
+		<td align="left" valign="top">
+			<table width="100%" border="0">
+				<tr>
+					<td colspan="2" align="left" valign="top"><h2>Private Method Details</h2></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_isSetFromLimit()"><h4>isSetFromLimit</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>private    boolean isSetFromLimit(  )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Comprueba si el límite desde el cual queremos recuperar registros de un Recordset
+						<br>
+						se encuentra fijado o no
+						<p>
+						
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>boolean <p></td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_isSetCount()"><h4>isSetCount</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>private    boolean isSetCount(  )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Comprueba si el límite hasta el cual queremos recuperar registros de un Recordset
+						<br>
+						se encuentra fijado o no
+						<p>
+						
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>boolean <p></td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+			</table>
+	</tr>
+		
+	
+	<tr>
+		<td align="left" valign="top">
+			<table width="100%" border="0">
+				<tr>
+					<td colspan="2" align="left" valign="top"><h2>Private Field Details</h2></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="variable_$dataSource"><h4>$dataSource</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>private   string $dataSource</b>
+						<p>
+						>><code>null</code><<
+						<p>
+						Atributo de tipo mixto que almacena la referencia a la fuente de datos actual del Recordset.
+						<br>
+						
+					</td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="variable_$result"><h4>$result</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>private   string $result</b>
+						<p>
+						>><code>null</code><<
+						<p>
+						Atributo de tipo mixto para mantener los resultados de una consulta a una fuente de datos.
+						<br>
+						
+					</td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="variable_$from"><h4>$from</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>private   string $from</b>
+						<p>
+						>><code>null</code><<
+						<p>
+						Almacena el valor origen para el caso de Recordsets limitados.
+						<br>
+						Desde dónde queremos registros en el recordset.
+					</td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="variable_$count"><h4>$count</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>private   string $count</b>
+						<p>
+						>><code>null</code><<
+						<p>
+						Almacena el número de registros a recuperar por el Recordset.
+						<br>
+						
+					</td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="variable_$countAll"><h4>$countAll</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>private   string $countAll</b>
+						<p>
+						>><code>null</code><<
+						<p>
+						Contador total de registros del Recordset sin aplicar límites.
+						<br>
+						Este contador es útil para el caso de las paginaciones de resultados para controlarcuál es el número total de registros que cumplen el filtro pero sin aplicar sus límites($from, $count).
+					</td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+			</table>
+	</tr>
+		
+	
+	<tr>
+		<td align="left" valign="top">
+			<table width="100%" border="0">
+				<tr>
+					<td colspan="2" align="left" valign="top"><h2>Private Constant Details</h2></td>
+				</tr>
+				
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<a name="constant_CLASS_PAFRECORDSET"><h4>CLASS_PAFRECORDSET</h4></a>
+						<code>define( CLASS_PAFRECORDSET, >>3<< )</code><br>
+						Case: default: case sensitive
+						<p>
+						
+						<br>
+						
+					</td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+			</table>
+	</tr>
+	
+	
+	<tr>
+		<td height="10" align="left" valign="top"><hr></td>
+	</tr>
+	<tr>
+		<td align="left" valign="top" bgcolor="#C0C0C0">			
+			<table>
+				<tr>
+					<td align="left" valign="top"><a href="phpdoc_packagelist.html">Packageindex</a></td>
+					<td align="left" valign="top"><a href="phpdoc_classtree.html">Classtrees</a></td>
+					<td align="left" valign="top"><a href="phpdoc_modulegroup.html">Modulegroups</a></td>
+					<td align="left" valign="top"><a href="phpdoc_elementlist.html">Elementlist</a></td>
+					<td align="left" valign="top"><a href="phpdoc_warnings.html">Report</a></td>
+					<td align="left" valign="top"><a href="phpdoc_xmlfiles.html">XML Files</a></td>
+				</tr>
+			</table>	
+		</td>
+	</tr>
+	<tr>
+		<td align="left" valign="top">PHPDoc 1.0beta</td>
+	</tr>
+</table>
+
+</body>
+</html>

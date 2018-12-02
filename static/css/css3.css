@@ -1,0 +1,76 @@
+.list li a,
+.bestsellers li a:hover,
+.name a:hover,
+
+.hover:hover .wrapper_pic_t,
+.hover:hover .wrapper_pic_r,
+.hover:hover .wrapper_pic_b,
+.hover:hover .wrapper_pic_l					{
+	-webkit-transition: all .4s ease 0s;
+	-moz-transition: all .4s ease 0s;
+	-ms-transition: all .4s ease 0s;
+	-o-transition: all .4s ease 0s;
+	transition: all .4s ease 0s;	
+}
+.contentPadd.r_view,
+.contentPadd.t_view,
+
+.sf-menu > li > a:hover					{
+	-webkit-transition: all .4s ease-in-out 0s;
+	-moz-transition: all .4s ease-in-out 0s;
+	-ms-transition: all .4s ease-in-out 0s;
+	-o-transition: all .4s ease-in-out 0s;
+	transition: all .4s ease-in-out 0s;	
+}
+/* ************************************************************************************* */
+::selection {
+background:#545252;
+color:#fff;
+}
+::-moz-selection {
+background:#545252; 
+color:#fff;
+}
+/* ************************************************************************************* */
+.class_name	{
+   -webkit-box-shadow: 0px 0px 3px #b2ac9c;
+   -moz-box-shadow: 0px 0px 3px #b2ac9c;
+   box-shadow: 0px 0px 3px #b2ac9c;
+}
+/*.infoBoxContents  li b	{text-shadow: #000 0px 0px 1px;}
+.infoBoxContents  li a	{text-shadow: #666666 0px 0px 1px;}*/
+#back-top a 	{
+	-webkit-transition: all 1s ease 0s;
+	-moz-transition: all 1s ease 0s;
+	-ms-transition: all 1s ease 0s;
+	-o-transition: all 1s ease 0s;
+	transition: all 1s ease 0s;	
+}
+.button_content2 .bg_button .button-t,
+.button_content2 .bg_button:hover .button-t,
+.button_content2 .bg_button.act .button-t,
+.button_content22 .bg_button .button-t,
+.button_content22 .bg_button:hover .button-t,
+.button_content22 .bg_button.act .button-t,
+.custom_select ul	{
+  border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+ 	-webkit-border-radius: 5px 5px 5px 5px;
+	-khtml-border-radius: 5px 5px 5px 5px;
+	position:relative;
+}
+.box_wrapper_title	{
+  border-radius: 5px 5px 0 0;
+	-moz-border-radius: 5px 5px 0 0;
+ 	-webkit-border-radius: 5px 5px 5px 5px;
+	-khtml-border-radius: 5px 5px 5px 5px;
+	position:relative;
+}
+.infoBoxWrapper .infoBoxContents 	{
+  border-radius: 0 0 5px 5px;
+	-moz-border-radius: 0 0 5px 5px;
+ 	-webkit-border-radius: 0 0 5px 5px;
+	-khtml-border-radius: 0 0 5px 5px;
+	position:relative;
+}
+/* code by Seaman */

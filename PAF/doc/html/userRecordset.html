@@ -1,0 +1,1346 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- Generated with PHPDoc, http://www.phpdoc.de -->
+<html>
+<head>
+	<title>PRISACOM APPLICATION FRAMEWORK - PAF - Class: userRecordset</title>
+	<link href="phpdoc.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<table width="100%" border="0">
+	<tr>
+		<td align="left" valign="top" bgcolor="#B0BAFF">			
+			<table width="100%">
+				<tr>
+					<td align="left" valign="top"><a href="phpdoc_packagelist.html">Packageindex</a></td>
+					<td align="left" valign="top"><a href="phpdoc_classtree.html">Classtrees</a></td>
+					<td align="left" valign="top"><a href="phpdoc_modulegroup.html">Modulegroups</a></td>
+					<td align="left" valign="top"><a href="phpdoc_elementlist.html">Elementlist</a></td>
+					<td align="left" valign="top"><a href="phpdoc_warnings.html">Report</a></td>
+					<td align="left" valign="top"><a href="phpdoc_xmlfiles.html">XML Files</a></td>
+				</tr>
+			</table>	
+		</td>
+	</tr>
+	<tr>	
+		<td height="20" align="left" valign="top"><hr></td>
+	</tr>
+	<tr>
+		<td align="left" valign="top">			
+			File: <a href="file://D:\wwwroot\web\private\class\php\PAF/samples/userRecordset.php" target="_new">D:\wwwroot\web\private\class\php\PAF/samples/userRecordset.php</a>
+			<h5>PRISACOM APPLICATION FRAMEWORK - PAF</h5>
+			<h1>userRecordset</h1>
+			<a href="PAFObject.html">PAFObject</a><br>&nbsp;&nbsp; |<br>&nbsp;&nbsp;+-- <a href="PAFRecordset.html">PAFRecordset</a><br>&nbsp;&nbsp;&nbsp;&nbsp; |<br>&nbsp;&nbsp;&nbsp;&nbsp;+-- userRecordset<br>
+			<p>
+			Implementación de un Recordset para la obtención de los datos de usuario de una determinada fuente
+			<p>
+			&nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td align="left" valign="top">
+			<h4>private    class userRecordset extends <a href="PAFRecordset.html">PAFRecordset</a></h4>
+			Implementación de un Recordset para la obtención de los datos de usuario de una determinada fuente
+			<br>
+			de datos.Actualmente este recordset puede tomar sus datos tanto de una Base de Datos mysql como de un ficheroplano. En el caso del fichero planoAdmite filtro por nombre así como por dirección de correo de los usuarios recuperados
+			<p>
+			<table>
+				
+				
+				<tr><td align="left" valign="top">Authors</td><td align="left" valign="top">Sergio Cruz &lt;<a href="mailto:scruz@prisacom.com">scruz@prisacom.com</a>&gt;</td></tr>
+				
+				<tr><td align="left" valign="top">Version</td><td align="left" valign="top">$Revision: 1.2 $</td></tr>
+				
+				
+				
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td height="10" align="left" valign="top">&nbsp;</td>
+	</tr>
+	
+	<tr>
+		<td height="20" align="left" valign="top"><hr></td>
+	</tr>
+	
+	<tr>
+		<td align="left" valign="top">
+			<table width="100%" border="0">
+				<tr>
+					<td align="left" valign="top"><h3>Methods inherited from PAFRecordset</h3></td>
+				</tr>
+				<tr>
+					<td align="left" valign="top"><a href="PAFRecordset.html#function_pafrecordset">pafrecordset</a>, <a href="PAFRecordset.html#function_getclasstype">getclasstype</a>, <a href="PAFRecordset.html#function_getclassname">getclassname</a>, <a href="PAFRecordset.html#function_getcountlimit">getcountlimit</a>, <a href="PAFRecordset.html#function_getfromlimit">getfromlimit</a>, <a href="PAFRecordset.html#function_getresult">getresult</a>, <a href="PAFRecordset.html#function_getdatasource">getdatasource</a>, <a href="PAFRecordset.html#function_istypeof">istypeof</a>, <a href="PAFRecordset.html#function_setdatasource">setdatasource</a>, <a href="PAFRecordset.html#function_setlimits">setlimits</a>, <a href="PAFRecordset.html#function_checklimits">checklimits</a>, <a href="PAFRecordset.html#function_issetfromlimit">issetfromlimit</a>, <a href="PAFRecordset.html#function_issetcount">issetcount</a></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="left" valign="top">
+			<table width="100%" border="0">
+				<tr>
+					<td align="left" valign="top"><h3>Methods inherited from PAFObject</h3></td>
+				</tr>
+				<tr>
+					<td align="left" valign="top"><a href="PAFObject.html#function_pafobject">pafobject</a>, <a href="PAFObject.html#function_getclasstype">getclasstype</a>, <a href="PAFObject.html#function_getclassname">getclassname</a>, <a href="PAFObject.html#function_istypeof">istypeof</a></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	
+	
+	<tr>
+		<td align="left" valign="top">		
+			<table width="100%" border="0">
+				<tr>
+					<td colspan="2" align="left" valign="top"><h2>Public Method Summary</h2></td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">void</td>
+					<td align="left" valign="top" width="100%"><a href="#function_userRecordset()"><h4>userRecordset( $ds, string $nameFilter, string $mailFilter, string $condition)</h4></a>Constructor</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">void</td>
+					<td align="left" valign="top" width="100%"><a href="#function_exec()"><h4>exec()</h4></a>Ejecución de la consulta sobre la Fuente de datos de usuarios.Warning: documentation is missing.</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">void</td>
+					<td align="left" valign="top" width="100%"><a href="#function_next()"><h4>next()</h4></a>Devuelve el siguiente registro del Resultset.Warning: documentation is missing.</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">int</td>
+					<td align="left" valign="top" width="100%"><a href="#function_count()"><h4>count()</h4></a>Devuelve el número de registros del Recordset.Warning: documentation is missing.</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">String</td>
+					<td align="left" valign="top" width="100%"><a href="#function_getNameFilter()"><h4>getNameFilter()</h4></a>Devuelve el contenido del filtro por nombre de usuario.</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">String</td>
+					<td align="left" valign="top" width="100%"><a href="#function_getMailFilter()"><h4>getMailFilter()</h4></a>Devuelve el contenido del filtro por mail de usuario.</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">String</td>
+					<td align="left" valign="top" width="100%"><a href="#function_getFilterCondition()"><h4>getFilterCondition()</h4></a>Devuelve el contenido de la condicioón que combina los dos filtros.</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">void</td>
+					<td align="left" valign="top" width="100%"><a href="#function_setNameFilter()"><h4>setNameFilter(String $name)</h4></a>Fija el valor para el filtro por nombre.</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">void</td>
+					<td align="left" valign="top" width="100%"><a href="#function_setMailFilter()"><h4>setMailFilter(String $mail)</h4></a>Fija el valor para el filtro por mail.</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">void</td>
+					<td align="left" valign="top" width="100%"><a href="#function_setFilterCondition()"><h4>setFilterCondition(String $condition)</h4></a>Fija el valor lógico con el combinan las dos condiciones de filtro.</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">int</td>
+					<td align="left" valign="top" width="100%"><a href="#function_countAllFromDB()"><h4>countAllFromDB()</h4></a>Proporciona el número total de registros que proporcionaría la consulta en Base de Datos si no</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">int</td>
+					<td align="left" valign="top" width="100%"><a href="#function_countAllFromFile()"><h4>countAllFromFile()</h4></a>Proporciona el número total de registros que proporcionaría la consulta en Fichero si no</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="left" valign="top">		
+			<table width="100%" border="0">
+				<tr>
+					<td colspan="2" align="left" valign="top"><h2>Private Method Summary</h2></td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">void</td>
+					<td align="left" valign="top" width="100%"><a href="#function_countAll()"><h4>countAll()</h4></a>Devuelve el número total de registros que proporciona el recordset. Esto es, pasaWarning: documentation is missing.</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">real</td>
+					<td align="left" valign="top" width="100%"><a href="#function_execFromDB()"><h4>execFromDB()</h4></a>Método privado para la consulta de usuarios sobre una Base de Datos.</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">string</td>
+					<td align="left" valign="top" width="100%"><a href="#function_fixWhere()"><h4>fixWhere(string &$query)</h4></a>Método que controla si hay que introducir alguna claúsula WHERE a la query que filtra los</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">void</td>
+					<td align="left" valign="top" width="100%"><a href="#function_execFromFile()"><h4>execFromFile()</h4></a>Método privado para la consulta de usuarios sobre un Fichero de Datos.</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">void</td>
+					<td align="left" valign="top" width="100%"><a href="#function_nextFromDB()"><h4>nextFromDB()</h4></a>Método privado que devuelve el siguiente registro del Recordset si este se ha recuperado desde</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">void</td>
+					<td align="left" valign="top" width="100%"><a href="#function_nextFromFile()"><h4>nextFromFile()</h4></a>Método privado que devuelve el siguiente registro del Recordset si este se ha recuperado desde</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">int</td>
+					<td align="left" valign="top" width="100%"><a href="#function_countFromDB()"><h4>countFromDB()</h4></a>Método privado que devuelve el número de registros del Recordset en caso de que la fuente de datos</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">int</td>
+					<td align="left" valign="top" width="100%"><a href="#function_countFromFile()"><h4>countFromFile()</h4></a>Método privado que devuelve el número de registros del Recordset en caso de que la fuente de datos</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+	
+	
+	<tr>
+		<td align="left" valign="top">
+			<table width="100%" border="0">
+				<tr>
+					<td align="left" valign="top"><h3>Fields inherited from PAFRecordset</h3></td>
+				</tr>
+				<tr>
+					<td align="left" valign="top"><a href="PAFRecordset.html#variable_$datasource">$datasource</a>, <a href="PAFRecordset.html#variable_$result">$result</a>, <a href="PAFRecordset.html#variable_$from">$from</a>, <a href="PAFRecordset.html#variable_$count">$count</a>, <a href="PAFRecordset.html#variable_$countall">$countall</a></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	
+	
+	<tr>
+		<td align="left" valign="top">		
+			<table width="100%" border="0">
+				<tr>
+					<td colspan="2" align="left" valign="top"><h2>Private Field Summary</h2></td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">string</td>
+					<td align="left" valign="top" width="100%"><a href="#variable_$resultIndex"><h4>$resultIndex</h4></a>Índice entero del registro actual en caso de que el conjunto de resultados se guarde en un</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">string</td>
+					<td align="left" valign="top" width="100%"><a href="#variable_$nameFilter"><h4>$nameFilter</h4></a>Atributo de tipo cadena para mantener el valor del filtro por nombre de usuario.</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">string</td>
+					<td align="left" valign="top" width="100%"><a href="#variable_$mailFilter"><h4>$mailFilter</h4></a>Atributo de tipo cadena para mantener el valor del filtro por dirección de correo del usuario.</td>
+				</tr>
+				
+				<tr>
+					<td align="right" valign="top">string</td>
+					<td align="left" valign="top" width="100%"><a href="#variable_$condition"><h4>$condition</h4></a>Valor de cadena que almacena el operador lógico de combinación de las dos condiciones</td>
+				</tr>
+				
+			</table>
+		</td>
+	</tr>
+	
+	
+	
+	
+	
+	
+	<tr>
+		<td align="left" valign="top">
+			<table width="100%" border="0">
+				<tr>
+					<td colspan="2" align="left" valign="top"><h2>Public Method Details</h2></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_userRecordset()"><h4>userRecordset</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>public    void userRecordset(  $ds, string $nameFilter, string $mailFilter, string $condition )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Constructor
+						<br>
+						
+						<p>
+						
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="2" align="left" valign="top">Parameter</td>
+				</tr>
+				
+				<tr>
+					<td></td>
+					<td align="left" valign="top">						
+						<table>
+							<tr>
+								<td align="left" valign="top"></td>
+								<td align="left" valign="top">$ds</td>
+								<td align="left" valign="top"><code></code></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td colspan="2" align="left" valign="top">Warning: documentation is missing.</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				
+				<tr>
+					<td></td>
+					<td align="left" valign="top">						
+						<table>
+							<tr>
+								<td align="left" valign="top">string</td>
+								<td align="left" valign="top">$nameFilter</td>
+								<td align="left" valign="top"><code></code></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td colspan="2" align="left" valign="top">Warning: documentation is missing.</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				
+				<tr>
+					<td></td>
+					<td align="left" valign="top">						
+						<table>
+							<tr>
+								<td align="left" valign="top">string</td>
+								<td align="left" valign="top">$mailFilter</td>
+								<td align="left" valign="top"><code></code></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td colspan="2" align="left" valign="top">Warning: documentation is missing.</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				
+				<tr>
+					<td></td>
+					<td align="left" valign="top">						
+						<table>
+							<tr>
+								<td align="left" valign="top">string</td>
+								<td align="left" valign="top">$condition</td>
+								<td align="left" valign="top"><code></code></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td colspan="2" align="left" valign="top">Warning: documentation is missing.</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>void <p></td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_exec()"><h4>exec</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>public    void exec(  )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Ejecución de la consulta sobre la Fuente de datos de usuarios.
+						<br>
+						Discrimina de qué tipo de fuente de datos estamos y deriva la ejecuciónal método privado que contiene la implementación de la consulta sobre la fuentede datos que corresponda.Sobreescrita de la clase virtual PAFRecordset.
+						<p>
+						Warning: documentation is missing.
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>void <p></td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_next()"><h4>next</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>public    void next(  )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Devuelve el siguiente registro del Resultset.
+						<br>
+						Dependiendo del tipo de fuente de datos utilizada para la obtención de los mismos este métododeriva su flujo hacia alguno de los métodos privados escritos al efecto.Sobreescrita de la clase virtual PAFRecordset.
+						<p>
+						Warning: documentation is missing.
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>void <p></td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_count()"><h4>count</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>public    int count(  )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Devuelve el número de registros del Recordset.
+						<br>
+						Dependiendo del tipo de fuente de datos se deriva el flujo de ejecución hacia un métodoprivado que realiza la cuenta (dependiendo del tipo de objeto que sea $result -DBResult o array).
+						<p>
+						Warning: documentation is missing.
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>int <p>con el número de registros del Recordset.</td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_getNameFilter()"><h4>getNameFilter</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>public    String getNameFilter(  )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Devuelve el contenido del filtro por nombre de usuario.
+						<br>
+						
+						<p>
+						
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>String <p>con el filtro de nombre de usuario activo.</td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_getMailFilter()"><h4>getMailFilter</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>public    String getMailFilter(  )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Devuelve el contenido del filtro por mail de usuario.
+						<br>
+						
+						<p>
+						
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>String <p>con el filtro de mail de usuario activo.</td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_getFilterCondition()"><h4>getFilterCondition</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>public    String getFilterCondition(  )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Devuelve el contenido de la condicioón que combina los dos filtros.
+						<br>
+						
+						<p>
+						
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>String <p>con &quot;AND&quot; u &quot;OR&quot;</td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_setNameFilter()"><h4>setNameFilter</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>public    void setNameFilter( String $name )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Fija el valor para el filtro por nombre.
+						<br>
+						
+						<p>
+						
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="2" align="left" valign="top">Parameter</td>
+				</tr>
+				
+				<tr>
+					<td></td>
+					<td align="left" valign="top">						
+						<table>
+							<tr>
+								<td align="left" valign="top">String</td>
+								<td align="left" valign="top">$name</td>
+								<td align="left" valign="top"><code></code></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td colspan="2" align="left" valign="top">el nuevo valor del filtro de nombre.</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>void <p></td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_setMailFilter()"><h4>setMailFilter</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>public    void setMailFilter( String $mail )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Fija el valor para el filtro por mail.
+						<br>
+						
+						<p>
+						
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="2" align="left" valign="top">Parameter</td>
+				</tr>
+				
+				<tr>
+					<td></td>
+					<td align="left" valign="top">						
+						<table>
+							<tr>
+								<td align="left" valign="top">String</td>
+								<td align="left" valign="top">$mail</td>
+								<td align="left" valign="top"><code></code></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td colspan="2" align="left" valign="top">el nuevo valor del filtro de mail.</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>void <p></td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_setFilterCondition()"><h4>setFilterCondition</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>public    void setFilterCondition( String $condition )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Fija el valor lógico con el combinan las dos condiciones de filtro.
+						<br>
+						Solo acepta &quot;AND&quot; u &quot;OR&quot;.
+						<p>
+						
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="2" align="left" valign="top">Parameter</td>
+				</tr>
+				
+				<tr>
+					<td></td>
+					<td align="left" valign="top">						
+						<table>
+							<tr>
+								<td align="left" valign="top">String</td>
+								<td align="left" valign="top">$condition</td>
+								<td align="left" valign="top"><code></code></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td colspan="2" align="left" valign="top">el literal AND u OR.</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>void <p></td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_countAllFromDB()"><h4>countAllFromDB</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>public    int countAllFromDB(  )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Proporciona el número total de registros que proporcionaría la consulta en Base de Datos si no
+						<br>
+						tuviera límites $from, $count.
+						<p>
+						
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>int <p></td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_countAllFromFile()"><h4>countAllFromFile</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>public    int countAllFromFile(  )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Proporciona el número total de registros que proporcionaría la consulta en Fichero si no
+						<br>
+						tuviera límites $from, $count.
+						<p>
+						
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>int <p></td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+			</table>
+	</tr>
+	
+	<tr>
+		<td align="left" valign="top">
+			<table width="100%" border="0">
+				<tr>
+					<td colspan="2" align="left" valign="top"><h2>Private Method Details</h2></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_countAll()"><h4>countAll</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>private    void countAll(  )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Devuelve el número total de registros que proporciona el recordset. Esto es, pasa
+						<br>
+						por alto los límites $from y $count que se hayan podido especificar sobre la consulta.
+						<p>
+						Warning: documentation is missing.
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>void <p></td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_execFromDB()"><h4>execFromDB</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>private    real execFromDB(  )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Método privado para la consulta de usuarios sobre una Base de Datos.
+						<br>
+						Se encarga de formar la sentencia SQL que será enviada a la Base de datos para realizarla consulta pertinente. El atributo $result de PAFRecord es fijado al manejador de resultadoproporcionado por la ejecución del query sobre la base de datos.
+						<p>
+						
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>real <p> izar la consulta correctamente sobre la base de datos o un<br />
+objeto PEAR_Error si se ha producido algún problema.</td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_fixWhere()"><h4>fixWhere</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>private    string fixWhere( string &$query )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Método que controla si hay que introducir alguna claúsula WHERE a la query que filtra los
+						<br>
+						datos de la base de datos si el recordset viniera con filtros especificados.Este método es privado y solo se utiliza en el caso de que la consulta se realize sobreuna fuente de base de datos.
+						<p>
+						
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="2" align="left" valign="top">Parameter</td>
+				</tr>
+				
+				<tr>
+					<td></td>
+					<td align="left" valign="top">						
+						<table>
+							<tr>
+								<td align="left" valign="top">string</td>
+								<td align="left" valign="top">&$query</td>
+								<td align="left" valign="top"><code></code></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td colspan="2" align="left" valign="top">Referencia a la cadena que contiene el query al que se añade el filtro que<br />
+corresponda.</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>string <p>Query modificado o no dependiendo del estado de los filtros del recordset.</td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_execFromFile()"><h4>execFromFile</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>private    void execFromFile(  )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Método privado para la consulta de usuarios sobre un Fichero de Datos.
+						<br>
+						El atributo destinado a guardar el resultado de la consulta es rellenado con un arrayde datos que se corresponden con dicho resultado.
+						<p>
+						
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>void <p></td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_nextFromDB()"><h4>nextFromDB</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>private    void nextFromDB(  )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Método privado que devuelve el siguiente registro del Recordset si este se ha recuperado desde
+						<br>
+						una fuente de datos de tipo &quot;Base de Datos&quot;.
+						<p>
+						
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>void <p></td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_nextFromFile()"><h4>nextFromFile</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>private    void nextFromFile(  )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Método privado que devuelve el siguiente registro del Recordset si este se ha recuperado desde
+						<br>
+						una fuente de datos de tipo &quot;Fichero plano&quot;.
+						<p>
+						
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>void <p></td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_countFromDB()"><h4>countFromDB</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>private    int countFromDB(  )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Método privado que devuelve el número de registros del Recordset en caso de que la fuente de datos
+						<br>
+						sea una Base de datos.
+						<p>
+						
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>int <p>con el número de Registros o null si no se puede recuperar el número de registros.</td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="function_countFromFile()"><h4>countFromFile</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>private    int countFromFile(  )</b><p>
+					</td>
+				</tr>
+				<tr>
+					<td width="10" align="left" valign="top">&nbsp;</td>
+					<td align="left" valign="top">
+						Método privado que devuelve el número de registros del Recordset en caso de que la fuente de datos
+						<br>
+						sea un fichero de datos plano.
+						<p>
+						
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td align="left" valign="top">Returns</td>
+					<td>int <p>con el número de Registros.</td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+			</table>
+	</tr>
+		
+	
+	<tr>
+		<td align="left" valign="top">
+			<table width="100%" border="0">
+				<tr>
+					<td colspan="2" align="left" valign="top"><h2>Private Field Details</h2></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="variable_$resultIndex"><h4>$resultIndex</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>private   string $resultIndex</b>
+						<p>
+						>><code>null</code><<
+						<p>
+						Índice entero del registro actual en caso de que el conjunto de resultados se guarde en un
+						<br>
+						array.
+					</td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="variable_$nameFilter"><h4>$nameFilter</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>private   string $nameFilter</b>
+						<p>
+						>><code>null</code><<
+						<p>
+						Atributo de tipo cadena para mantener el valor del filtro por nombre de usuario.
+						<br>
+						
+					</td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="variable_$mailFilter"><h4>$mailFilter</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>private   string $mailFilter</b>
+						<p>
+						>><code>null</code><<
+						<p>
+						Atributo de tipo cadena para mantener el valor del filtro por dirección de correo del usuario.
+						<br>
+						
+					</td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+				<tr><td colspan="2" align="left" valign="top"><a name="variable_$condition"><h4>$condition</h4></a></td></tr>
+				<tr>
+					<td colspan="2" align="left" valign="top">
+						<b>private   string $condition</b>
+						<p>
+						>><code>null</code><<
+						<p>
+						Valor de cadena que almacena el operador lógico de combinación de las dos condiciones
+						<br>
+						que forman los filtros. Puede tomar los valores AND u OR.Si el valor es AND el filtro será $nameFilter AND $mailFilter.Si el valor es OR el filtro será $nameFilter OR $mailFilter.
+					</td>
+				</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<tr>
+					<td colspan="2" align="left" valign="top"><hr></td>
+				</tr>
+				
+			</table>
+	</tr>
+		
+	
+	
+	<tr>
+		<td height="10" align="left" valign="top"><hr></td>
+	</tr>
+	<tr>
+		<td align="left" valign="top" bgcolor="#C0C0C0">			
+			<table>
+				<tr>
+					<td align="left" valign="top"><a href="phpdoc_packagelist.html">Packageindex</a></td>
+					<td align="left" valign="top"><a href="phpdoc_classtree.html">Classtrees</a></td>
+					<td align="left" valign="top"><a href="phpdoc_modulegroup.html">Modulegroups</a></td>
+					<td align="left" valign="top"><a href="phpdoc_elementlist.html">Elementlist</a></td>
+					<td align="left" valign="top"><a href="phpdoc_warnings.html">Report</a></td>
+					<td align="left" valign="top"><a href="phpdoc_xmlfiles.html">XML Files</a></td>
+				</tr>
+			</table>	
+		</td>
+	</tr>
+	<tr>
+		<td align="left" valign="top">PHPDoc 1.0beta</td>
+	</tr>
+</table>
+
+</body>
+</html>

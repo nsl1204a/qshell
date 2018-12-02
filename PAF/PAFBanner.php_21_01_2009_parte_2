@@ -1,0 +1,338 @@
+<?php
+
+// *****************************************************************************
+// Lenguaje: PHP
+// Copyright 2002 Prisacom S.A.
+// *****************************************************************************
+
+require_once "PAF/PAFOutput.php";
+require_once "PAF/PAFOJD.php";
+
+define ("BANNERFILE_EXTENSION", ".ban");
+define ("PAFBANNER_VERBOSE", 1);
+define ("DIR_BANNER_FLAGS", "/SESIONES/bannercontrol");
+
+/**
+  * Representa la salida física de un Banner determinado.
+  * Un banner (su código a incorporar en la página) viene definido dentro de
+  * un fichero .ban que se encuentra situado en un directorio específico para
+  * cada web.
+  * El nombre de un fichero de banner se compone de tres partes:
+  * 1.- Nombre de la página (proporcionado por el anchor correspondiente).
+  * 2.- Posición del banner ("top", "left", "right", "left") separada de la
+  *     sección anterior por un "_".
+  * 3.- Extensión del fichero de banner (generalmente ".ban") definido en esta clase
+  *
+  * Así por ejemplo el nombre de fichero de un banner para una portada que se vaya
+  * a mostrar en la parte superior tiene como nombre:
+  *
+  *         portada_top.ban
+  *
+  * @author Sergio Cruz <scruz@prisacom.com>
+  * @version $Revision: 1.25 $
+  * @access public
+  * @package PAF
+  */
+class PAFBanner extends PAFOutput {
+
+    /**
+      * Contiene el directorio donde se encuentran los ficheros .ban con el
+      * código de cada banner.
+      * @var string
+      */
+    var $dirBanners= "";
+
+    /**
+      * Contiene la parte principal del nombre de banner, esto es, sin la parte
+      * del nombre que identifica la posición del banner (p.ej portada).
+      * @var string
+      */
+    var $name= "";
+
+    /**
+      * Contiene la porción del nombre de fichero que identifica la posición del banner.
+      * @var string
+      */
+    var $position="";
+
+    /**
+      * Objeto PAFTemplate que controla el aspecto con el que se muestra el banner,
+      * @var object
+      */
+    var $tpl= null;
+
+    /**
+      * True para adjuntar el tag ojd al banner o false en caso contrario
+      * @var boolean
+      */
+    var $ojd = 1;
+
+    /**
+      * True para adjuntar el tag ojd al banner o false en caso contrario
+      * @var boolean
+      */
+    var $keywords = array();
+
+    /**
+      * Constructor.
+      *
+      * @access public
+      * @param string $dirBanners Directorio donde se encuentran los ficheros .ban con el
+      *        código del Banner.
+      * @param string $page Parte principal del nombre del fichero .ban (sin _<posicion>).
+      * @param string $position Parte secundaria del nombre del fichero .ban que identifica
+      *        la posición que ocupa el banner. Puede tomar los valores "top", "right",
+      *        "left" o "bottom".
+      * @param object $tpl Objeto template con el diseño que queremos incorporar al banner ai acaso.
+      */
+    function PAFBanner  (
+                            $dirBanners,
+                            $page,
+                            $position,
+                            $tpl= null,
+			    $ojd=1
+                        )
+    {
+        $this->PAFOutput();
+
+        $this->dirBanners= $dirBanners;
+        $this->page= $page;
+        $this->position= $position;
+        $this->tpl= $tpl;
+	$this->ojd = $ojd;
+    }
+
+    /**
+      * Devuelve el directorio del que se recuperarán los ficheros de banners.
+      *
+      * @access public
+      * @return string.
+      */
+    function getDirBanners() {
+
+        return $this->dirBanners;
+    }
+
+    /**
+      * Devuelve el nombre de la página en la que se mostrará el banner.
+      * @access public
+      * @return string
+      */
+    function getPage() {
+
+        return $this->page;
+    }
+
+    /**
+      * Devuelve la posición del banner.
+      *
+      * @access public
+      * @return string Con los posibles valores "top", "bottom", "right", "left".
+      */
+    function getPosition() {
+
+        return $this->position;
+    }
+
+    /**
+      * Devuelve el estado del tag ojd.
+      *
+      * @access public
+      * @return boolean.
+      */
+    function getOjd() {
+
+        return $this->ojd;
+    }
+
+    /**
+      * Establece el directorio del que se recuperarán los ficheros de banners.
+      *
+      * @access public
+      * @param string $value Nombre del Directorio completo donde se buscarán los banners.
+      */
+    function setDirBanners($value) {
+
+        $this->dirBanners= $value;
+    }
+
+    /**
+      * Establece el nombre de la página en la que se mostrará el banner. Este dato
+      * forma parte del nombre de fichero del que se recupera el código de script
+      * propio del banner.
+      *
+      * @access public
+      * @param string $value
+      */
+    function setPage($value) {
+
+        $this->page= $value;
+    }
+
+    /**
+      * Establece la posición del Banner.
+      *
+      * @access public
+      * @param string $value Puede tomar los valores "top", "bottom", "right" o "left".
+      */
+    function setPosition($value) {
+
+        $this->position= $value;
+    }
+
+    /**
+      * Establece el tag ojd.
+      *
+      * @access public
+      * @param boolean.
+      */
+    function setOjd($value) {
+
+        $this->ojd = $value;
+    }
+
+    /**
+      * Establecen las keywords
+      *
+      * @access public
+      * @param array.
+      */
+    /*function setKeywords($keywords) {
+
+        $this->keywords = $keywords;
+    }*/
+
+    /**
+      * Método que proporciona el código HTML del Banner especificado.
+      * @access public
+      * @return string Código del banner.
+      */
+    function getOutput() {
+
+        /*
+         * Si el navegador es Safari en sus versiones de iPhone o iPod Touch, devolvemos vacío
+         *
+         * truiz - 20090108
+         */
+        $browser = $_SERVER['HTTP_USER_AGENT'];
+        if(strstr($browser, "iPhone") || strstr($browser, "iPod")){
+                return "";
+        }
+        $nameBanner= $this->getBannerName();
+
+        // Descripcion del banner
+        if (PAFBANNER_VERBOSE == 1)
+	    {
+
+            $preBanner = "<!-- BANNER_".strtoupper ($this->position)." - POSITION: ".$this->position." - PAGE: ".$this->page." -->";
+            $suBanner = "<!-- /BANNER_".strtoupper ($this->position)." -->";
+            $tagOJD   = "";
+        }
+        // Tag OJD
+        if ($this->ojd && $this->position=="top") {
+            $objtagOJD  = new PAFOJD($this->dirBanners,$this->page);
+            $tagOJD     = $objtagOJD->getOutput();
+        }
+	    else $tagOJD = "";
+
+		$host_info = explode('.', $_SERVER['HTTP_HOST']);
+		$host = $host_info[count($host_info)-2];
+
+		if (file_exists(DIR_BANNER_FLAGS."/$host.flg") || file_exists(DIR_BANNER_FLAGS."/all.flg"))
+	    { 
+	        $banner= "<!-- >>> BANNER_" . $this->position . " DESACTIVADO <<< -->";
+        }
+	    elseif ( is_file ($nameBanner) )
+	    {
+
+			$bannerOAS = @file_get_contents($nameBanner);
+			if (is_null($bannerOAS)) $bannerOAS='';
+
+			/*if (is_array($this->keywords) && !empty($this->keywords))
+			{
+				$keys = implode(',', $this->keywords);
+				$bannerOAS=str_replace("'?';", "'?".$keys."';", $bannerOAS, 1);
+			}*/
+
+			$key_iptc = PAFApplication::_getStaticProperty('PAFApplication','keywords');
+
+			$iptc = PAFApplication::_getStaticProperty('PAFApplication','iptc');
+            $cont = sizeof($iptc);
+            for($i=0; $i<$cont;$i++){
+                if(!$key_iptc)
+                    $key_iptc = array_pop($iptc);
+                else
+                    $key_iptc.= ',' . array_pop($iptc);
+            }
+
+			if($key_iptc)
+                $bannerOAS=str_replace("'?';", "'?" . $key_iptc . "';", $bannerOAS);
+
+            if (!is_null ($this->tpl)) {
+
+                $tpl = $this->tpl;
+                $tpl->setVar ("BANNER", $bannerOAS);
+                $banner = $tpl->parse ();
+            }
+
+            else $banner = $bannerOAS;
+        }
+        else $banner= "<!-- >>> BANNER_" . $this->position . " NO DEFINIDO <<< -->";
+
+        return $tagOJD.$preBanner.$banner.$suBanner;
+    }
+
+    /**
+      * Devuelve el nombre completo (path incluído) del banner actual.
+      *
+      * @access private
+      * @return string
+      */
+    function getBannerName () {
+
+        $auxName= $this->dirBanners . "/" . $this->page . "_" . $this->position . BANNERFILE_EXTENSION;
+        return $auxName;
+    }
+
+    function isPubli($pageOAS) {
+    
+    	//Control posiciones x01...x99
+	$pattern = "/x[0-9][0-9]/";
+	if (! preg_match($pattern,$this->position)) 
+		$pos=ucfirst($this->position);
+	else 
+		$pos=$this->position;
+	//
+	
+        $i_aleatorio = rand(100000000,999999999);
+        $s_url_oas   = "http://ads.prisacom.com/RealMedia/ads/adstream_jx.ads/".
+                       $pageOAS.
+                       "/1".
+                       $i_aleatorio.
+                       "@".
+                       $pos;
+
+        if (!$fp =fopen($s_url_oas,"r")) return false;
+
+        while( !feof($fp)) {
+           $s_aux   = fgets($fp);
+           $s_resp .= $s_aux;
+        }
+        
+        fclose($fp);
+
+        if (empty($s_resp)) return false;
+
+        if ( stristr($s_resp,"empty.gif")) {
+            // No hay campaña
+            return false;
+        }
+        else {
+            return true;
+        }
+
+    } 
+
+}
+
+?>
