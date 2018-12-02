@@ -4,14 +4,14 @@ ini_set('display_errors', 0);
 
 require_once('private/conf/configuration.inc');
 require_once('private/QSH/QSHCommandsOU.php');
-require_once('PAF/PAFHeader.php');
+require_once('PAF/HeaderManager.php');
 
 $charset = 'iso-8859-1';
 
 $performer = new QSHCommandsOU();
 $out       = $performer->getOutput();
 
-$hd = new PAFHeader();
+$hd = new HeaderManager();
 $hd->setCacheTime(0);
 $hd->setAlternativeCacheCero();
 

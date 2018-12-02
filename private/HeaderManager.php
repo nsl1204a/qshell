@@ -1,28 +1,6 @@
 <?php
 
-// *****************************************************************************
-// Lenguaje: PHP
-// Copyright 2002 Prisacom S.A.
-//
-// $Id: PAFHeader.php,v 1.21 2008/02/11 14:28:35 amolina Exp $
-// *****************************************************************************
-
-//require_once "PAF/PAFObject.php";
-
-/**
-* Clase para el establecimiento y env�o de Headers en un PAFPage.
-* Si se especifica un tiempo de cach� por medio del m�todo setCacheTime se enviar� el Header
-* correspondiente a dicho tiempo de cache. Adicionalmente se pueden incluir dentro del array
-* $headers tantos como se deseen enviar, si bien esto ya tienen que ir en un formato adecuado y
-* a�adirlo a dicho array por medio del m�todo setHeader(). Al realizar un sendHeaders() se enviar�
-* el correspondiente al tiempo de cache y los que contenga el array.
-*
-* @author Gustavo N��ez <gnunez@prisacom.com>,Sergio Cruz <scruz@prisacom.com>
-* @version $Revision: 1.21 $
-* @access public
-* @package PAF
-*/
-class PAFHeader /*extends PAFObject*/
+class HeaderManager /*extends PAFObject*/
 {
     /**
     * Contiene el valor de la cach� de p�gina que se enviar� por medio
@@ -66,7 +44,7 @@ class PAFHeader /*extends PAFObject*/
     *
     * @access public
     */
-    function PAFHeader()
+    function HeaderManager()
     {
 //        $this->PAFObject();
     }
@@ -269,19 +247,19 @@ class PAFHeader /*extends PAFObject*/
     function sendMovedPermanently($location) 
     { 
         header("HTTP/1.0 301 Moved Permanently"); 
-        PAFHeader::redirect($location);
+        HeaderManager::redirect($location);
     }
     function sendMovedTemporarily($location)
     {
         header("HTTP/1.0 302 Moved Temporarily");
-        PAFHeader::redirect($location);
+        HeaderManager::redirect($location);
     }
 
     function sendNotModified() 
     { 
         header("HTTP/1.0 304 Not Modified"); 
-        PAFHeader::sendCacheHeaders();
-        PAFHeader::sendContentType();
+        HeaderManager::sendCacheHeaders();
+        HeaderManager::sendContentType();
         die();
     }
     function sendTemporaryRedirect() 

@@ -4,9 +4,9 @@ require_once('private/conf/QSHProcess.inc');
 require_once('private/conf/QSHPageTemplates.inc');
 require_once('private/QSH/QSHfunctions.inc');
 require_once('private/QSH/QSHCommandsOU.php');
-require_once('PAF/PAFHeader.php');
+require_once('private/HeaderManager.php');
 
-$hd = new PAFHeader();
+$hd = new HeaderManager();
 $hd->setCacheTime(0);
 $hd->setContentType("text/html");
 $hd->setAlternativeCacheCero();
